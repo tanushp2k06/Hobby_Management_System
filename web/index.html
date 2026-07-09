@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HobbyFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">H</div>
+            <div>
+                <h2>HobbyFlow</h2>
+                <p>Daily hobby tracker</p>
+            </div>
+        </div>
+
+        <div class="nav-item active" onclick="scrollToSection('dashboard')">Dashboard</div>
+        <div class="nav-item" onclick="scrollToSection('hobbies')">Hobbies</div>
+        <div class="nav-item" onclick="scrollToSection('progress')">Progress</div>
+        <div class="nav-item" onclick="scrollToSection('reminders')">Reminders</div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Dashboard -->
+        <section class="topbar" id="dashboard">
+            <div>
+                <h1>Hobby Dashboard</h1>
+                <p>Track practice, streaks, reminders and weekly consistency.</p>
+            </div>
+            <div class="date-pill" id="todayDate"></div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span>Total Hobbies</span>
+                <h2 id="totalCount">0</h2>
+            </div>
+            <div class="stat-card">
+                <span>Practiced Today</span>
+                <h2 id="doneCount">0</h2>
+            </div>
+            <div class="stat-card">
+                <span>Pending</span>
+                <h2 id="pendingCount">0</h2>
+            </div>
+            <div class="stat-card">
+                <span>Best Streak</span>
+                <h2 id="bestStreak">0</h2>
+            </div>
+        </section>
+
+        <!-- Add Hobby -->
+        <section class="panel" id="reminders">
+            <div class="panel-header">
+                <div>
+                    <h2>Add New Hobby</h2>
+                    <p>Create a hobby with category and reminder.</p>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <input type="text" id="title" placeholder="Hobby name">
+                <input type="text" id="category" placeholder="Category">
+                <input type="time" id="time">
+                <button onclick="addHobby()">Add Hobby</button>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="content-grid">
+
+            <!-- Hobbies -->
+            <div class="panel" id="hobbies">
+                <div class="panel-header">
+                    <div>
+                        <h2>Your Hobbies</h2>
+                        <p>Track and manage your hobbies.</p>
+                    </div>
+                    <button class="secondary-btn" onclick="loadHobbies()">Refresh</button>
+                </div>
+
+                <div id="hobbyList" class="hobby-grid"></div>
+            </div>
+
+            <!-- Weekly -->
+            <div class="panel side-panel" id="progress">
+                <div class="panel-header">
+                    <div>
+                        <h2>Weekly Progress</h2>
+                        <p>Shows after daily reset.</p>
+                    </div>
+                </div>
+
+                <button class="full-btn" onclick="loadWeekly()">Load Weekly Progress</button>
+                <div id="weeklyList" class="weekly-list"></div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
